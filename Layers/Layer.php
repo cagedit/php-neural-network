@@ -2,11 +2,10 @@
 namespace Layers;
 
 use Logging\Logger;
-use Neuron, Net, Traits\IdTrait;
+use Neuron, Net;
 
 class Layer
 {
-    use IdTrait;
 
     private $network;
     private $nodes;
@@ -43,7 +42,6 @@ class Layer
 
     protected function setup(string $type)
     {
-        $this->setId();
 
         if (is_null($this->type)) {
             $this->type = $type;
