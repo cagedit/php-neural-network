@@ -80,6 +80,7 @@ class Net
 
     public function backProp(array $targetVals)
     {
+        Logger::debug("Target Outputs " . json_encode($targetVals));
         $this->assertSetup();
 
         //

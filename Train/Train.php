@@ -5,7 +5,7 @@ use Logging\Logger;
 use Net, Exception, Neuron;
 use Layers\Layer;
 
-class Train
+class Train implements TrainInterface
 {
     const TRAIN_METHOD_XOR = 'xor';
     const TRAIN_METHOD_AND = 'and';
@@ -52,7 +52,7 @@ class Train
 
     }
 
-    public function setNetwork(Net $net)
+    public function setNetwork(Net $net): TrainInterface
     {
         $this->network = $net;
         return $this;
@@ -63,7 +63,7 @@ class Train
         return [2, 3, 1];
     }
 
-    public function train()
+    public function train(): TrainInterface
     {
         Logger::debug("Beginning to train the network!");
 
@@ -78,7 +78,7 @@ class Train
             $this->network->feedForward($trainData);
             $output = $this->network->getResults();
 
-            Logger::debug("Output: " . json_encode($output));
+            Logger::debug("Actual Output: " . json_encode($output));
 
             $this->network->backProp($targetOutput);
 

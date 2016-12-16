@@ -1,10 +1,8 @@
 <?php
-use Traits\IdTrait;
 use Layers\Layer;
 use Logging\Logger;
 class Neuron
 {
-    use IdTrait;
 
     protected $value;
     protected $outputVal;
@@ -29,7 +27,6 @@ class Neuron
         }
 
         $this->myIndex = $myIndex;
-        $this->setId();
     }
 
     public function setLayer(Layer $layer)
